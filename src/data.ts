@@ -1,0 +1,23 @@
+export type Incident = { id:string; type:string; location:string; landmark:string; latitude:number; longitude:number; location_confidence:number; people_affected:number; urgency:'HIGH'|'MEDIUM'|'LOW'; status:'ACTIVE'|'RESCUE IN PROGRESS'|'RESOLVED'; primary_resource:string; vulnerable_people:string[]; confidence:number; summary:string; updated:string; changed:string; reports:number; impact_radius_m:number; evidence:string[] };
+export const incidents:Incident[] = [
+ {id:'I001',type:'Flood + Medical Emergency',location:'Velachery MRTS — West Side Approach',landmark:'Velachery MRTS',latitude:12.978,longitude:80.22,location_confidence:.91,people_affected:6,urgency:'HIGH',status:'ACTIVE',primary_resource:'Medical team · insulin',vulnerable_people:['Elderly','Diabetic'],confidence:.93,summary:'Six people stranded by rising water. One person requires insulin and urgent medical assessment.',updated:'2 min ago',changed:'Medical need confirmed · insulin required',reports:14,impact_radius_m:450,evidence:['WhatsApp report: elderly resident needs insulin','SMS update: water rising near west-side approach','14 linked reports clustered; operator verification pending']},
+ {id:'I003',type:'Flood Rescue',location:'Medavakkam School Road · Residential Lane',landmark:'Government School',latitude:12.925,longitude:80.185,location_confidence:.86,people_affected:11,urgency:'HIGH',status:'RESCUE IN PROGRESS',primary_resource:'NDRF rescue boat',vulnerable_people:['Elderly'],confidence:.88,summary:'Residents sheltering on upper floors as flood water blocks the access road.',updated:'6 min ago',changed:'Rescue team dispatched to the area',reports:9,impact_radius_m:600,evidence:['Audio report: residents trapped as ground-floor water rises','WhatsApp reports: three families moved upstairs','Rescue boat arrival reported by SMS']},
+ {id:'I002',type:'Transformer Fire',location:'Tambaram Sanatorium Railway Station · Electrical Compound',landmark:'Tambaram Sanatorium Station',latitude:12.951,longitude:80.14,location_confidence:.89,people_affected:18,urgency:'HIGH',status:'RESOLVED',primary_resource:'Fire tender',vulnerable_people:['Children'],confidence:.91,summary:'Electrical transformer fire contained by responding fire crew. Area is being monitored.',updated:'18 min ago',changed:'Fire contained · incident resolved',reports:7,impact_radius_m:250,evidence:['Audio report: smoke near electrical compound','WhatsApp report: fire crew alerted','Operator confirmed fire contained']}
+];
+export const reports = [
+ {source:'WhatsApp',icon:'◉',time:'just now',text:'Water is almost at the first floor near Velachery station. Elderly person needs insulin.',kind:'Emergency',id:'I001'},
+ {source:'SMS',icon:'▤',time:'1 min ago',text:'Rescue boat has reached the Medavakkam school road lane.',kind:'Verified update',id:'I003'},
+ {source:'Audio',icon:'◖',time:'3 min ago',text:'Loud popping sounds near the power compound; smoke visible from the platform.',kind:'Clustered',id:'I002'},
+ {source:'Twitter / X',icon:'𝕏',time:'4 min ago',text:'Road is flooded near Velachery MRTS. Avoid west-side approach.',kind:'Duplicate filtered',id:'I001'},
+ {source:'WhatsApp',icon:'◉',time:'5 min ago',text:'Can anyone confirm if the Tambaram transformer is still burning?',kind:'Resolved context',id:'I002'},
+ {source:'SMS',icon:'▤',time:'7 min ago',text:'Selling raincoats and snacks — call for delivery.',kind:'Noise filtered',id:''},
+ {source:'Audio',icon:'◖',time:'9 min ago',text:'We are trapped inside the house, water coming into ground floor.',kind:'Emergency',id:'I003'},
+ {source:'Twitter / X',icon:'𝕏',time:'11 min ago',text:'Massive explosion at Tambaram station, hundreds injured!!!',kind:'Conflicting · unverified',id:'I002'},
+ {source:'WhatsApp',icon:'◉',time:'12 min ago',text:'Small electrical fire by the railway maintenance yard. Fire team alerted.',kind:'Clustered',id:'I002'},
+ {source:'SMS',icon:'▤',time:'14 min ago',text:'Water on School Road is knee-deep and rising.',kind:'Emergency',id:'I003'},
+ {source:'Twitter / X',icon:'𝕏',time:'17 min ago',text:'Traffic is slow due to heavy rain near Velachery.',kind:'Context only',id:'I001'},
+ {source:'WhatsApp',icon:'◉',time:'20 min ago',text:'Three families moved upstairs near the government school.',kind:'Emergency',id:'I003'},
+ {source:'Audio',icon:'◖',time:'24 min ago',text:'Power is out across the street near the station.',kind:'Incomplete',id:'I002'},
+ {source:'SMS',icon:'▤',time:'28 min ago',text:'Flood warning forwarded from last year.',kind:'Noise filtered',id:''},
+ {source:'Twitter / X',icon:'𝕏',time:'31 min ago',text:'Transformer smoke seen near Tambaram Sanatorium.',kind:'Emergency',id:'I002'}
+];
